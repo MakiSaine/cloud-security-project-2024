@@ -38,5 +38,10 @@ To develop skills in cloud security design, governance, and technical testing th
 I set up an Ubuntu virtual machine in VMware and verified the username using `whoami`.  
 This ensures all screenshots are tied to my unique environment.
 
-<img src="screenshots/vm_whoami.png" width="700" alt="Ubuntu VM setup with whoami output">
+<img src="./screenshots/vm_whoami.png" alt="VM whoami screenshot" width="600">
 
+### CPU Info (lscpu)
+To document the CPU architecture and performance, I ran the `lscpu` command inside the VM.  
+This shows the number of CPUs, cores per socket, and the bogomips value for each core.
+
+<img src="./screenshots/vm_lscpu.png" alt="CPU Info Screenshot" width="700">
