@@ -10,13 +10,6 @@ It includes research, planning, and practical exercises using Azure, Nginx, Dock
 - Security plan based on NIST CSF  
 - Technical labs with DDoS simulation and containerized environments  
 
-## Virtual Machine Setup
-
-I set up an Ubuntu virtual machine in VMware and verified the username using `whoami`.  
-This ensures all screenshots are tied to my unique environment.
-
-<img src="screenshots/vm_whoami.png" width="700" alt="Ubuntu VM setup with whoami output">
-
 ## Key Learnings
 
 - Designing **hybrid cloud architectures** for scalability and compliance  
@@ -36,3 +29,14 @@ This ensures all screenshots are tied to my unique environment.
 ## Goal
 
 To develop skills in cloud security design, governance, and technical testing through a realistic project scenario.
+
+---
+
+## Project Screenshots
+
+### Virtual Machine Setup
+I set up an Ubuntu virtual machine in VMware and verified the username using `whoami`.  
+This ensures all screenshots are tied to my unique environment.
+
+<img src="screenshots/vm_whoami.png" width="700" alt="Ubuntu VM setup with whoami output">
+
