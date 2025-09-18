@@ -1,7 +1,7 @@
 # Cloud Security Project (2024)
 
 This project explores hybrid cloud architecture, compliance requirements, and hands-on security testing.  
-It includes research, planning, and practical exercises using Azure, Nginx, Docker, and Apache Benchmark.  
+It includes research, planning, and practical exercises using Azure, Nginx, Docker, and Apache Benchmark.
 
 ## Content
 
@@ -9,6 +9,29 @@ It includes research, planning, and practical exercises using Azure, Nginx, Dock
 - Security and compliance research (GDPR, NIS, US laws)  
 - Security plan based on NIST CSF  
 - Technical labs with DDoS simulation and containerized environments  
+
+## Virtual Machine Setup
+
+I set up an Ubuntu virtual machine in VMware and verified the username using `whoami`.  
+This ensures all screenshots are tied to my unique environment.
+
+<img src="screenshots/vm_whoami.png" width="700" alt="Ubuntu VM setup with whoami output">
+
+## Key Learnings
+
+- Designing **hybrid cloud architectures** for scalability and compliance  
+- Hands-on experience with **Nginx**, **Docker**, and **load testing**  
+- Practical knowledge of **incident response** and **business continuity planning**  
+- Using **Azure governance tools** to manage complexity  
+
+## Tools and Technologies
+
+- Microsoft Azure  
+- Nginx  
+- Docker  
+- Apache Benchmark (`ab`)  
+- Ubuntu VM  
+- NIST CSF & CSA Cloud Security Guidance  
 
 ## Goal
 
