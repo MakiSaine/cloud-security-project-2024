@@ -18,6 +18,8 @@ It includes research, planning, and practical exercises using Azure, Nginx, Dock
   - [System Resource Usage During DDoS Simulation](#system-resource-usage-during-ddos-simulation)
   - [ApacheBench DDoS Stress Test (1,000,000 Requests)](#apachebench-ddos-stress-test-1000000-requests)
 - [Conclusion & Future Work](#conclusion--future-work)
+## Further Reading
+- [Hybrid Cloud Strategy case study](./HYBRID_CLOUD_STRATEGY.md)
 
 ## Content
 
