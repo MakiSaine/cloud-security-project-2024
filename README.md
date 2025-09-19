@@ -68,7 +68,7 @@ These ports are open and waiting for incoming connections, but there is no curre
 In this task, I installed **apache2-utils** and the **Nginx web server** on my Ubuntu virtual machine.  
 I then performed a simulation of a Distributed Denial of Service (DDoS) attack using the `ab` (Apache Benchmark) command.
 
-**Commands used:**
+**Commands used:
 ```bash
 sudo apt update && sudo apt install nginx
 sudo systemctl start nginx
