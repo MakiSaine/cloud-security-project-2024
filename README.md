@@ -52,6 +52,5 @@ This shows the number of CPUs, cores per socket, and the bogomips value for each
 To verify which network ports were open, I ran the `ss -tuln` command inside the VM.  
 The output lists all listening ports, including protocol, local address, and process ID.
 
-<p align="center">
+
   <img src="screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="800">
-</p>
