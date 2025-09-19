@@ -46,3 +46,10 @@ This shows the number of CPUs, cores per socket, and the bogomips value for each
 **No of CPUs/Core:** 2  **BogoMIPS per core:** 5587.06
 
 <img src="./screenshots/vm_lscpu.png" alt="CPU Info Screenshot" width="700">
+
+### Open Ports Check
+
+To verify which network ports were open, I ran the `ss -tuln` command inside the VM.  
+The output lists all listening ports, including protocol, local address, and process ID.
+
+![Open Ports Screenshot](screenshots/vm_ss_tuln.png)
