@@ -98,6 +98,5 @@ Finally, in the same way as before, I used the `ab` command to simulate a DDoS a
 **Summary:**  
 Simulated 10,000 HTTP requests with 100 concurrent connections against the Dockerized Nginx server to measure performance.
 
-<img src="./screenshots/apachebench_test_docker.png" alt="ApacheBench DDoS simulation output inside Docker container" width="900">
 
 <img src="./screenshots/apachebench_test_docker.png" alt="ApacheBench DDoS simulation output inside Docker container" width="900">
