@@ -52,5 +52,15 @@ This shows the number of CPUs, cores per socket, and the bogomips value for each
 To verify which network ports were open, I ran the `ss -tuln` command inside the VM.  
 The output lists all listening ports, including protocol, local address, and process ID.
 
+The command output shows that my system has open network ports, with both UDP and TCP 
+sockets in the listening state. Notably, **port 631 is active**.  
+The system is listening on:
 
-  <img src="screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="800">
+- `0.0.0.0:631` (all IPv4 interfaces)
+- `127.0.0.1:631` (local connections)
+- `[::1]:631` (IPv6 loopback)
+
+These ports are open and waiting for incoming connections, but there is no current data in the send or receive queues.
+
+  <img src="screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="900">
+
