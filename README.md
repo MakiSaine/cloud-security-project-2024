@@ -64,3 +64,16 @@ These ports are open and waiting for incoming connections, but there is no curre
 
   <img src="screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="900">
 
+### ApacheBench DDoS Simulation
+In this task, I installed **apache2-utils** and the **Nginx web server** on my Ubuntu virtual machine.  
+I then performed a simulation of a Distributed Denial of Service (DDoS) attack using the `ab` (Apache Benchmark) command.
+
+**Commands used:**
+```bash
+sudo apt update && sudo apt install nginx
+sudo systemctl start nginx
+ab -n 100000 -c 100 127.0.0.1
+
+Summary:
+Simulated 100,000 HTTP requests with 100 concurrent connections against the local Nginx server to measure performance and observe CPU usage in real time.
+ <img src="./screenshots/apachebench_test_ubuntu.png" alt="ApacheBench DDoS simulation output" width="900">
