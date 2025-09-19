@@ -43,6 +43,7 @@ This ensures all screenshots are tied to my unique environment.
 ### CPU Info (lscpu)
 To document the CPU architecture and performance, I ran the `lscpu` command inside the VM.  
 This shows the number of CPUs, cores per socket, and the bogomips value for each core.
+
 **No of CPUs/Core:** 2  **BogoMIPS per core:** 5587.06
 
 <img src="./screenshots/vm_lscpu.png" alt="CPU Info Screenshot" width="700">
