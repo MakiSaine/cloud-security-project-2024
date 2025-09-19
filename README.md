@@ -63,7 +63,7 @@ The system is listening on:
 
 These ports are open and waiting for incoming connections, but there is no current data in the send or receive queues.
 
-  <img src="screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="900">
+<img src="screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="900">
 
 ### ApacheBench DDoS Simulation
 
@@ -98,26 +98,23 @@ Finally, in the same way as before, I used the `ab` command to simulate a DDoS a
 **Summary:**  
 Simulated 10,000 HTTP requests with 100 concurrent connections against the Dockerized Nginx server to measure performance.
 
-
 <img src="./screenshots/apachebench_test_docker.png" alt="ApacheBench DDoS simulation output inside Docker container" width="900">
 
 ### System Resource Usage During DDoS Simulation
 
-I observed the CPU load, memory usage, and running processes during the attack.
+I observed the **CPU load**, **memory usage**, and **running processes** during the attack.  
 This allowed me to compare the results of running Nginx directly on the virtual machine versus running it inside a Docker container.
 
-Observations:
+**Observations:**
+- **CPU Load:** The CPU load inside the Docker container was slightly lower than when running Nginx directly on the VM.  
+- **Memory Usage:** The memory usage in the Docker container was also slightly different but still high due to the DDoS attack.  
 
-CPU Load: The CPU load inside the Docker container was slightly lower than when running Nginx directly on the VM.
-
-Memory Usage: The memory usage in the Docker container was also slightly different but still high due to the DDoS attack.
-
-Result:
-After running the DDoS attack inside the Docker container, I noticed that the CPU load and memory usage were slightly different compared to task B.3.
-The Docker container added some overhead, which slightly reduced the available system resources for Nginx.
+**Result:**  
+After running the DDoS attack inside the Docker container, I noticed that the CPU load and memory usage were slightly different compared to task B.3.  
+The Docker container added some overhead, which slightly reduced the available system resources for Nginx.  
 However, the system was still under significant load due to the high number of requests.
 
-Summary:
+**Summary:**  
 Visual representation of system performance (CPU and memory usage) during the ApacheBench DDoS simulation inside Docker.
 
 <img src="./screenshots/apachebench_htop_usage.png" alt="htop output showing CPU and memory usage during ApacheBench DDoS attack" width="900">
@@ -146,3 +143,26 @@ This indicates that the virtual machine had been overwhelmed by the excessive nu
 
 <img src="./screenshots/apachebench_ddos_server_down.png" alt="Firefox unable to connect message after DDoS test" width="900">
 
+---
+
+## Conclusion
+
+Through these simulations, I confirmed that running Nginx inside Docker adds a slight overhead, but performance under normal load remains acceptable.  
+Under extreme load (1,000,000 requests), both the VM and containerized Nginx instance reached maximum CPU and memory usage, eventually causing the system to stop responding.
+
+These results highlight the importance of:
+
+- Monitoring CPU and memory usage under stress  
+- Implementing rate limiting or load balancing to prevent outages  
+- Planning for capacity and scalability in real-world deployments  
+
+## Future Work
+
+- Automate these tests using scripts or CI/CD pipelines  
+- Experiment with horizontal scaling (multiple containers / VMs)  
+- Test with a real load balancer (e.g., Nginx reverse proxy, Azure Front Door)  
+- Implement mitigation strategies such as WAF or throttling  
+
+---
+
+_Project by Mahamed-Maki Saine — Cloud Security Project 2024_
