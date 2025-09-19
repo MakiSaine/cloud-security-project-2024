@@ -106,7 +106,7 @@ Simulated 10,000 HTTP requests with 100 concurrent connections against the Docke
 I observed the CPU load, memory usage, and running processes during the attack.
 This allowed me to compare the results of running Nginx directly on the virtual machine versus running it inside a Docker container.
 
-** Observations: **
+Observations:
 
 CPU Load: The CPU load inside the Docker container was slightly lower than when running Nginx directly on the VM.
 
@@ -121,4 +121,28 @@ Summary:
 Visual representation of system performance (CPU and memory usage) during the ApacheBench DDoS simulation inside Docker.
 
 <img src="./screenshots/apachebench_htop_usage.png" alt="htop output showing CPU and memory usage during ApacheBench DDoS attack" width="900">
+
+### ApacheBench DDoS Stress Test (1,000,000 Requests)
+
+For this task, I analyzed how many requests my virtual machine could handle before it went offline due to excessive load caused by a simulated DDoS attack.
+
+**Command used:**
+
+```bash
+ab -n 1000000 -c 1000 http://127.0.0.1/
+```
+
+This command sends **1,000,000 requests** with **1,000 concurrent threads** to the Nginx server running on the virtual machine.
+
+<img src="./screenshots/apachebench_ddos_command.png" alt="ApacheBench command execution during DDoS stress test" width="900">
+
+When I ran the command, the system load increased significantly.  
+Using the `htop` command in another terminal window, I observed that the **CPU usage shot up to almost 100%** and the **memory usage was very high**.
+
+<img src="./screenshots/apachebench_ddos_htop.png" alt="htop output showing CPU and memory usage near 100% during DDoS" width="900">
+
+After some time, the system became **unresponsive**, and the web server stopped responding to further requests.  
+This indicates that the virtual machine had been overwhelmed by the excessive number of requests, effectively simulating a Distributed Denial of Service (DDoS) attack.
+
+<img src="./screenshots/apachebench_ddos_server_down.png" alt="Firefox unable to connect message after DDoS test" width="900">
 
