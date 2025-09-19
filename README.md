@@ -3,6 +3,22 @@
 This project explores hybrid cloud architecture, compliance requirements, and hands-on security testing.  
 It includes research, planning, and practical exercises using Azure, Nginx, Docker, and Apache Benchmark.
 
+## Table of Contents
+
+- [Content](#content)
+- [Key Learnings](#key-learnings)
+- [Tools and Technologies](#tools-and-technologies)
+- [Goal](#goal)
+- [Project Screenshots](#project-screenshots)
+  - [Virtual Machine Setup](#virtual-machine-setup)
+  - [CPU Info (lscpu)](#cpu-info-lscpu)
+  - [Open Ports Check](#open-ports-check)
+  - [ApacheBench DDoS Simulation](#apachebench-ddos-simulation)
+  - [ApacheBench DDoS Simulation in Docker](#apachebench-ddos-simulation-in-docker)
+  - [System Resource Usage During DDoS Simulation](#system-resource-usage-during-ddos-simulation)
+  - [ApacheBench DDoS Stress Test (1,000,000 Requests)](#apachebench-ddos-stress-test-1000000-requests)
+- [Conclusion & Future Work](#conclusion--future-work)
+
 ## Content
 
 - Hybrid cloud architecture proposal  
@@ -35,12 +51,14 @@ To develop skills in cloud security design, governance, and technical testing th
 ## Project Screenshots
 
 ### Virtual Machine Setup
+
 I set up an Ubuntu virtual machine in VMware and verified the username using `whoami`.  
 This ensures all screenshots are tied to my unique environment.
 
 <img src="./screenshots/vm_whoami.png" alt="VM whoami screenshot" width="600">
 
 ### CPU Info (lscpu)
+
 To document the CPU architecture and performance, I ran the `lscpu` command inside the VM.  
 This shows the number of CPUs, cores per socket, and the bogomips value for each core.
 
@@ -53,9 +71,8 @@ This shows the number of CPUs, cores per socket, and the bogomips value for each
 To verify which network ports were open, I ran the `ss -tuln` command inside the VM.  
 The output lists all listening ports, including protocol, local address, and process ID.
 
-The command output shows that my system has open network ports, with both UDP and TCP 
-sockets in the listening state. Notably, **port 631 is active**.  
-The system is listening on:
+The command output shows that my system has open network ports, with both UDP and TCP sockets in the listening state.  
+Notably, **port 631 is active**. The system is listening on:
 
 - `0.0.0.0:631` (all IPv4 interfaces)
 - `127.0.0.1:631` (local connections)
@@ -63,7 +80,7 @@ The system is listening on:
 
 These ports are open and waiting for incoming connections, but there is no current data in the send or receive queues.
 
-<img src="screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="900">
+<img src="./screenshots/vm_ss_tuln.png" alt="Open Ports Screenshot" width="900">
 
 ### ApacheBench DDoS Simulation
 
@@ -106,6 +123,7 @@ I observed the **CPU load**, **memory usage**, and **running processes** during 
 This allowed me to compare the results of running Nginx directly on the virtual machine versus running it inside a Docker container.
 
 **Observations:**
+
 - **CPU Load:** The CPU load inside the Docker container was slightly lower than when running Nginx directly on the VM.  
 - **Memory Usage:** The memory usage in the Docker container was also slightly different but still high due to the DDoS attack.  
 
@@ -145,24 +163,26 @@ This indicates that the virtual machine had been overwhelmed by the excessive nu
 
 ---
 
-## Conclusion
+## Conclusion & Future Work
 
-Through these simulations, I confirmed that running Nginx inside Docker adds a slight overhead, but performance under normal load remains acceptable.  
-Under extreme load (1,000,000 requests), both the VM and containerized Nginx instance reached maximum CPU and memory usage, eventually causing the system to stop responding.
+Through these experiments, I confirmed that running Nginx inside Docker adds a slight overhead, but performance under normal load remains acceptable.  
+Under extreme load (1,000,000 requests), both VM and containerized setups reached extreme CPU and memory usage, and the system ultimately became unresponsive.  
+The Docker container’s isolation adds overhead that slightly reduces available system resources under stress.
 
-These results highlight the importance of:
+### Key Takeaways
 
-- Monitoring CPU and memory usage under stress  
-- Implementing rate limiting or load balancing to prevent outages  
-- Planning for capacity and scalability in real-world deployments  
+- Monitor CPU and memory usage under stress  
+- Implement rate limiting or load balancing to prevent outages  
+- Plan for capacity and scalability in real-world deployments  
 
-## Future Work
+### Future Work
 
-- Automate these tests using scripts or CI/CD pipelines  
-- Experiment with horizontal scaling (multiple containers / VMs)  
-- Test with a real load balancer (e.g., Nginx reverse proxy, Azure Front Door)  
-- Implement mitigation strategies such as WAF or throttling  
+- Automate benchmark tests using CI/CD pipelines  
+- Explore horizontal scaling (multiple instances or containers) to distribute load  
+- Introduce mitigation strategies such as rate limiting, caching, load balancing, or WAF  
+- Monitor additional metrics like network I/O, disk I/O, and latency for deeper insight  
 
 ---
 
 _Project by Mahamed-Maki Saine — Cloud Security Project 2024_
+
