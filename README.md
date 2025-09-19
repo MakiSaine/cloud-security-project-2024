@@ -38,7 +38,7 @@ It includes research, planning, and practical exercises using Azure, Nginx, Dock
 - Microsoft Azure  
 - Nginx  
 - Docker  
-- Apache Benchmark (`ab`)  
+- Apache Benchmark (`ab`) – load testing tool used to simulate concurrent requests  
 - Ubuntu VM  
 - NIST CSF & CSA Cloud Security Guidance  
 
@@ -165,8 +165,8 @@ This indicates that the virtual machine had been overwhelmed by the excessive nu
 
 ## Conclusion & Future Work
 
-Through these experiments, I confirmed that running Nginx inside Docker adds a slight overhead, but performance under normal load remains acceptable.  
-Under extreme load (1,000,000 requests), both VM and containerized setups reached extreme CPU and memory usage, and the system ultimately became unresponsive.  
+Through these experiments, I confirmed that running Nginx inside Docker introduces a slight overhead, but under moderate load performance remains largely acceptable.  
+Under extreme load (1,000,000 requests), both the VM and containerized instances reached near‑maximum CPU and memory usage; eventually, the system became unresponsive.  
 The Docker container’s isolation adds overhead that slightly reduces available system resources under stress.
 
 ### Key Takeaways
@@ -177,12 +177,13 @@ The Docker container’s isolation adds overhead that slightly reduces available
 
 ### Future Work
 
-- Automate benchmark tests using CI/CD pipelines  
-- Explore horizontal scaling (multiple instances or containers) to distribute load  
-- Introduce mitigation strategies such as rate limiting, caching, load balancing, or WAF  
-- Monitor additional metrics like network I/O, disk I/O, and latency for deeper insight  
+- Automate benchmark tests using CI/CD pipelines for consistent, repeatable testing  
+- Explore horizontal scaling using multiple containers or virtual machines  
+- Introduce mitigation strategies such as caching, load balancers, or a Web Application Firewall (WAF)  
+- Monitor additional performance metrics (network I/O, disk I/O, latency) to gain deeper insight  
 
 ---
 
 _Project by Mahamed-Maki Saine — Cloud Security Project 2024_
+
 
