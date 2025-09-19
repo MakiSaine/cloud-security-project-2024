@@ -81,3 +81,15 @@ ab -n 100000 -c 100 127.0.0.1
 Simulated 100,000 HTTP requests with 100 concurrent connections against the local Nginx server to measure performance and observe CPU usage in real time.
 
 <img src="./screenshots/apachebench_test_ubuntu.png" alt="ApacheBench DDoS simulation output" width="900">
+
+### ApacheBench DDoS Simulation in Docker
+
+Next, to run Nginx inside a Docker container, I pulled the Nginx image from Docker Hub and started a container with it using the command:
+
+```bash
+sudo docker run -d -p 80:80 --name nginx-container nginx
+
+This command runs the Nginx container in detached mode (-d), maps port 80 of the host machine to port 80 of the container (-p 80:80), and names the container nginx-container.
+Finally, in the same way as before, I used the ab command to simulate a DDoS attack — this time targeting the Docker container.
+
+<img src="./screenshots/apachebench_test_docker.png" alt="ApacheBench DDoS simulation output inside Docker container" width="900"> ```
